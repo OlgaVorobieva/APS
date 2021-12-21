@@ -1,22 +1,18 @@
-#ifndef STEP_H
-#define STEP_H
-
-#include "request.h"
+#ifndef STEPSTRUCT_H
+#define STEPSTRUCT_H
 
 #include <vector>
 #include <string>
-#include <memory>
+#include "request.h"
 
 struct step_t
 {
-  double time;
-  int rejected;
-  int processed;
-  int devicePointer;
-  std::string action;
-  std::vector<std::shared_ptr<Request>> packageStateVector;
-  std::vector<std::shared_ptr<Request>> sourceStateVector;
-  std::vector<std::shared_ptr<Request>> bufferStateVector;
-  std::vector<std::shared_ptr<Request>> deviceStateVector;
+    double time;
+    std::string actionString;
+    std::vector<requestPointer> bufferStateVector;
+    std::vector<requestPointer> deviceStateVector;
+    int addPointer;
+    int getPointer;
 };
-#endif
+
+#endif // STEPSTRUCT_H
